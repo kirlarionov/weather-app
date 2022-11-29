@@ -10,7 +10,7 @@ interface BackToMainButtonProps {
 
 const BackToMainButton: FC<BackToMainButtonProps> = ({ bottom, right }) => {
    return (
-      <NavLink to={"/"}>
+      <NavLink to={"/weather-app/"}>
          <Button
             variant="contained"
             startIcon={<ChevronLeftIcon />}

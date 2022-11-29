@@ -7,8 +7,11 @@ import NotFoundPage from "./pages/NotFoundPage"
 const App: FC = () => {
    return (
       <Routes>
-         <Route path="/" element={<MainPage />} />
-         <Route path="/cities/:cityName" element={<CityWeatherPage />} />
+         <Route path="/weather-app/" element={<MainPage />} />
+         <Route
+            path="/weather-app/cities/:cityName"
+            element={<CityWeatherPage />}
+         />
          <Route path="*" element={<NotFoundPage />} />
       </Routes>
    )

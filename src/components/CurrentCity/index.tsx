@@ -64,7 +64,7 @@ const CurrentCity: FC = () => {
 
    if (!city) return <WelcomeMessage />
 
-   const cityPageUrl = `/cities/${city.name.toLocaleLowerCase()}`
+   const cityPageUrl = `/weather-app/cities/${city.name.toLocaleLowerCase()}`
    const updatedDate = moment().format("MMMM DD, HH:mm:ss")
    const currentTemp = tempFormat(city.main.temp)
    const feelsLikeTemp = tempFormat(city.main.feels_like)
