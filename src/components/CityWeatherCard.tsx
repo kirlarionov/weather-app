@@ -56,7 +56,7 @@ const CityWeatherCard: FC<CityWeatherCardProps> = ({ cityName }) => {
 
    if (!cityWeather) return null
 
-   const cityPageUrl = `/cities/${cityWeather.name.toLocaleLowerCase()}`
+   const cityPageUrl = `/weather-app/cities/${cityWeather.name.toLocaleLowerCase()}`
    const updatedDate = moment().format("HH:mm:ss")
    const currentTemp = tempFormat(cityWeather.main.temp)
 
