@@ -5,9 +5,6 @@ import MainPage from "./pages/MainPage"
 import NotFoundPage from "./pages/NotFoundPage"
 
 const App: FC = () => {
-   //! ----- ДОБАВИТЬ страницу 404
-
-
    return (
       <Routes>
          <Route path="/" element={<MainPage />} />
