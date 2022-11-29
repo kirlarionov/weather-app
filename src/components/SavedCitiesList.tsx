@@ -12,7 +12,7 @@ const SavedCitiesList: FC = () => {
             Saved cities:
          </Typography>
 
-         {savedCities?.length ? (
+         {savedCities.length ? (
             <Box sx={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                {savedCities?.map((cityName: string, index: number) => (
                   <CityWeatherCard key={index} cityName={cityName} />

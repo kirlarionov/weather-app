@@ -12,7 +12,7 @@ const BackToMainButton: FC<BackToMainButtonProps> = ({ bottom, right }) => {
    return (
       <NavLink to={"/"}>
          <Button
-            variant="outlined"
+            variant="contained"
             startIcon={<ChevronLeftIcon />}
             sx={{
                position: "absolute",

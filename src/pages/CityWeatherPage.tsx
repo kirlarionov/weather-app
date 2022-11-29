@@ -16,14 +16,16 @@ import { City } from "../interface/city"
 import moment from "moment"
 import { tempFormat } from "../utils/temp-format"
 import BackToMainButton from "../components/BackToMainButton"
+import HourlyForecast from "../components/HourlyForecast"
 
 const cityWeatherPageStyle: SxProps<Theme> = {
-   maxWidth: "990px",
+   maxWidth: "1100px",
    minHeight: "100vh",
    margin: "0 auto",
    padding: "40px",
    fontFamily: "Roboto, sans-serif",
    backgroundColor: "#ebfbf0",
+   paddingBottom: "250px",
 }
 
 const headerStyle: SxProps<Theme> = {
@@ -43,6 +45,16 @@ const timeAndUpdateBoxStyle: SxProps<Theme> = {
 const updateIconStyle: SxProps<Theme> = {
    ":hover": { transform: "scale(1.3)" },
    transition: "all .2s",
+}
+
+const contentBoxStyle: SxProps<Theme> = {
+   display: "flex",
+   fontSize: "18px",
+   mb: "20px",
+   p: "20px",
+   position: "relative",
+   backgroundColor: "white",
+   borderRadius: "10px",
 }
 
 const currentTempStyle: SxProps<Theme> = {
@@ -101,16 +113,7 @@ const CityWeatherPage: FC = () => {
             </Box>
          </Box>
 
-         <Box
-            sx={{
-               display: "flex",
-               fontSize: "18px",
-               mb: "20px",
-               p: "20px",
-               position: "relative",
-               backgroundColor: "white",
-               borderRadius: "10px",
-            }}>
+         <Box sx={contentBoxStyle}>
             <Box sx={{ width: "50%" }}>
                <Box sx={currentTempStyle}>
                   <Typography variant="h5">Current Temp:</Typography>
@@ -159,6 +162,8 @@ const CityWeatherPage: FC = () => {
             </Box>
             <BackToMainButton bottom="20px" right="20px" />
          </Box>
+
+         <HourlyForecast cityId={cityWeather.id} />
       </Box>
    )
 }
