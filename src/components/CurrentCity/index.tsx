@@ -21,7 +21,6 @@ import {
    saveCity as addCity,
 } from "../../store/slices/weatherSlice"
 import { getSavedCities } from "../../utils/get-saved-cities"
-import { getCityWeatherRequest } from "../../services/weather"
 import WelcomeMessage from "./WelcomeMessage"
 
 const currentCityStyle: SxProps<Theme> = {
@@ -87,9 +86,7 @@ const CurrentCity: FC = () => {
 
    const updateCurrentCity = async (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation()
-      return await getCityWeatherRequest(city.name).then((data) =>
-         dispatch(getCurrentCityInfo(data))
-      )
+      dispatch(getCurrentCityInfo(city.name))
    }
 
    return (

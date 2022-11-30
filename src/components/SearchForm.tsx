@@ -1,8 +1,10 @@
-import { FC, ChangeEvent, FormEvent, useState } from "react"
+import { FC, ChangeEvent, FormEvent, useState, useEffect } from "react"
 import { Box, Paper, InputBase, Button, SxProps, Theme } from "@mui/material"
-import { getCityWeatherRequest } from "../services/weather"
-import { useAppDispatch } from "../hook"
-import { getCurrentCityInfo } from "../store/slices/weatherSlice"
+import { useAppDispatch, useAppSelector } from "../hook"
+import {
+   getCurrentCityInfo,
+   searchErrorIsFalse,
+} from "../store/slices/weatherSlice"
 
 const errorMessageStyles: SxProps<Theme> = {
    position: "absolute",
@@ -22,9 +24,11 @@ const paperStyles: SxProps<Theme> = {
 
 const SearchForm: FC = () => {
    const [searchCity, setSearchCity] = useState("")
-   const [searchError, setSearchError] = useState(false)
    const [emptySearchInput, setEmptySearchInput] = useState(false)
 
+   const searchError: boolean = useAppSelector(
+      (state) => state.weather.searchError
+   )
    const dispatch = useAppDispatch()
 
    const handleInputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,21 +36,22 @@ const SearchForm: FC = () => {
    }
 
    const clearingSearchInput = () => {
-      setSearchError(false)
+      dispatch(searchErrorIsFalse())
       setEmptySearchInput(false)
    }
 
+   useEffect(() => {
+      if (searchError) {
+         setInterval(() => dispatch(searchErrorIsFalse()), 3000)
+      }
+   }, [dispatch, searchError])
+
    const getCityWeather = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-
       if (searchCity) {
-         return await getCityWeatherRequest(searchCity)
-            .then((data) => dispatch(getCurrentCityInfo(data)))
-            .then(() => setSearchCity(""))
-            .catch(() => {
-               setSearchError(true)
-               setInterval(() => setSearchError(false), 4000)
-            })
+         return await dispatch(getCurrentCityInfo(searchCity)).then(() =>
+            setSearchCity("")
+         )
       } else {
          setEmptySearchInput(true)
          setInterval(() => setEmptySearchInput(false), 4000)
