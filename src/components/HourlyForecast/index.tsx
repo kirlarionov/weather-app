@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect } from "react"
 import { Typography, Box, SxProps, Theme } from "@mui/material"
-import { getHourlyForecastRequest } from "../../services/weather"
-import { CityHourlyForecats } from "../../interface/hourly-forecast/weather-all-hours"
+import { getHourlyForecast } from "../../store/slices/weatherSlice"
+import { useAppSelector, useAppDispatch } from "../../hook"
 import TempCard from "./HourTempCard"
 
 const hourlyForecastStyle: SxProps<Theme> = {
@@ -18,12 +18,14 @@ const zeroDegreesStyle: SxProps<Theme> = {
 }
 
 const HourlyForecast: FC<{ cityId: number }> = ({ cityId }) => {
-   const [hourlyForecast, setHourlyForecast] =
-      useState<CityHourlyForecats | null>(null)
+   const hourlyForecast = useAppSelector(
+      (state) => state.weather.cityHourlyForecats
+   )
+   const dispatch = useAppDispatch()
 
    useEffect(() => {
-      getHourlyForecastRequest(cityId).then((data) => setHourlyForecast(data))
-   }, [cityId])
+      dispatch(getHourlyForecast(cityId))
+   }, [cityId, dispatch])
 
    if (!hourlyForecast) return null
 

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
 import {
    getCityWeatherRequest,
    getHourlyForecastRequest,
-} from "../../services/weather/index"
+} from "../../services/weather"
 import { City } from "../../interface/city"
 import { CityHourlyForecats } from "../../interface/hourly-forecast/weather-all-hours"
 
