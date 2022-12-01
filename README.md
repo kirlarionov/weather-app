@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Typescript-007acc?style=for-the-badge&logo=Typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=white"/>
   <img src="https://img.shields.io/badge/Material UI-007FFF?style=for-the-badge&logo=MUI&logoColor=white"/>
-  <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"/>
+  <img src="https://img.shields.io/badge/jest-39ab37?style=for-the-badge&logo=jest&logoColor=913e56"/>
   <img src="https://img.shields.io/badge/react router-black?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/>
 </p>
 
