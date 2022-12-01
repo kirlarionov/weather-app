@@ -30,7 +30,6 @@ const HourTempCard: FC<HourTempCardProps> = ({ hourTemp }) => {
    }
 
    const margin = cardMargin()
-   console.log(111, margin)
 
    return (
       <Box sx={hourTempCardStyle}>
