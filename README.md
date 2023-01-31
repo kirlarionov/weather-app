@@ -1,4 +1,7 @@
 <a id="anchor"></a>
+<p align="center">
+      <img src="./src/assets/images/weather-app.jpg" width="500">
+</p>
 
 <h1 align="center">
       Weather App
