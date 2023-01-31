@@ -5,6 +5,7 @@
 
 <h1 align="center">
       Weather App
+      <img src="./src/assets/images/weather.png">
 </h1>
 
 ## About
